@@ -1,4 +1,4 @@
-package com.adminportal.domain.security;
+package com.adminportal.domain;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -8,8 +8,8 @@ import javax.persistence.*;
 public class Book {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String title;
 	private String author;
 	private String publisher;
@@ -22,17 +22,20 @@ public class Book {
 	private double shippingWeight;
 	private double listPrice;
 	private double ourPrice;
+	private boolean active = true;
+
 	@Column(columnDefinition = "text")
 	private String description;
 	private int inStockNumber;
+
 	@Transient
 	private MultipartFile bookImage;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -132,6 +135,14 @@ public class Book {
 		this.ourPrice = ourPrice;
 	}
 
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -155,4 +166,6 @@ public class Book {
 	public void setBookImage(MultipartFile bookImage) {
 		this.bookImage = bookImage;
 	}
+
+
 }

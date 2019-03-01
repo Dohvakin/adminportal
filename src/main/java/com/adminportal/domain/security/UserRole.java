@@ -4,12 +4,13 @@ import com.adminportal.domain.User;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "user_role")
 public class UserRole {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userRoleId;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
