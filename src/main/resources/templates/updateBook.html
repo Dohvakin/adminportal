@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
 <head th:replace="common/header :: common-header"/>
@@ -9,12 +8,14 @@
 <div class="container">
     <div class="row">
         <form class="form-horizontal" enctype="multipart/form-data" method="post"
-              th:action="@{/book/add}">
+              th:action="@{/book/updateBook}">
             <fieldset>
                 <legend class="center-block">
-                    New Book Information<span style="font-size: small"> * is a
+                    Update Book Information<span style="font-size: small"> * is a
 							required field</span>
                 </legend>
+
+                <input hidden="hidden" name="id" th:value="${book.id}"/>
 
 
                 <!-- title -->
@@ -213,7 +214,7 @@
                     <label class="col-md-2 control-label" for="description">Description</label>
                     <div class="col-md-8">
 							<textarea class="form-control" id="description" name="description"
-                                      placeholder="Description" rows="5"
+                                      placeholder="Description" rows="5" th:text="${book.description}"
                                       th:value="${book.description}"/>
                         <span class="help-block">Description of the book</span>
                     </div>
@@ -233,8 +234,8 @@
                 <div class="form-group">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        <button class="btn btn-success" type="submit">Add Book</button>
-                        <a class="btn btn-danger" th:href="@{/}">Cancel</a>
+                        <button class="btn btn-success" type="submit">Update Book</button>
+                        <a class="btn btn-danger" th:href="@{/book/bookInfo(id=${book.id})}">Cancel</a>
                     </div>
                 </div>
             </fieldset>

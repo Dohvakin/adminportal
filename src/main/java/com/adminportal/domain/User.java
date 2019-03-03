@@ -15,7 +15,7 @@ import java.util.Set;
 public class User implements UserDetails {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", nullable = false, updatable = false)
 	private Long id;
 	private String username;
@@ -78,11 +78,9 @@ public class User implements UserDetails {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-
 	public Set<UserRole> getUserRoles() {
 		return userRoles;
 	}
-
 	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
 	}

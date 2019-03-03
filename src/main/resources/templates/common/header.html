@@ -13,6 +13,14 @@
 <!-- Custom styles for this template -->
 	<link rel="stylesheet" th:href="@{/css/style.css}"/>
 
+	<!-- data table -->
+	<link rel="stylesheet" th:href="@{/css/jquery.dataTables.min.css}"/>
+	<link rel="stylesheet" th:href="@{/css/dataTables.bootstrap.min.css}"/>
+
+
+	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+	<script>tinymce.init({selector: 'textarea'});</script>
+
 <link rel="icon" href="/image/applie-touch-icon.png" />
 </head>
 
@@ -139,6 +147,10 @@
 	<div th:fragment="body-bottom-scripts">
 		<script th:src="@{/js/jquery.min.js}"></script>
 		<script th:src="@{/js/bootstrap.min.js}"></script>
+
+		<!-- data table -->
+		<script th:src="@{/js/jquery.dataTables.min.js}"></script>
+		<script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
 	</div>
 </body>
 </html>
