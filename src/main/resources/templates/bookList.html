@@ -39,15 +39,18 @@
 
 
 <div th:replace="common/header :: body-bottom-scripts"/>
-
-<script>
-	$(document).ready(function () {
-		$("#bookListTable").DataTable({
-			"lengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "All"]],
-			"ordering": false,
-			stateSave: true
-		});
-	});
+<script th:src="@{/js/jquery.dataTables.min.js}"></script>
+<script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
+<script th:inline="javascript">
+    $(document).ready(function() {
+        $("#bookListTable").dataTable({
+            <!--  Keep space between [ [] ] or else Thymeleaf will give error -->
+            "lengthMenu": [ [5,10,15,20,-1],[5,10,15,20,"All"] ],
+            "ordering": false,
+            aoStateSave: true
+        });
+    });
 </script>
+
 </body>
 </html>
