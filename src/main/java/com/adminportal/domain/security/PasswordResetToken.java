@@ -1,5 +1,6 @@
 package com.adminportal.domain.security;
 
+
 import com.adminportal.domain.User;
 
 import javax.persistence.*;
@@ -38,13 +39,6 @@ public class PasswordResetToken {
 		return EXPIRATION;
 	}
 
-	private Date calculateExpiryDate(final int expiryTimeInMinutes) {
-		final Calendar cal = Calendar.getInstance();
-		cal.setTimeInMillis(new Date().getTime());
-		cal.add(Calendar.MINUTE, expiryTimeInMinutes);
-		return new Date(cal.getTime().getTime());
-	}
-
 	public void updateToken(final String token) {
 		this.token = token;
 		this.expiryDate = calculateExpiryDate(EXPIRATION);
@@ -52,6 +46,13 @@ public class PasswordResetToken {
 
 	public Long getId() {
 		return id;
+	}
+
+	private Date calculateExpiryDate(final int expiryTimeInMinutes) {
+		final Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(new Date().getTime());
+		cal.add(Calendar.MINUTE, expiryTimeInMinutes);
+		return new Date(cal.getTime().getTime());
 	}
 
 	public String getToken() {

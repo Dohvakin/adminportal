@@ -1,9 +1,9 @@
 package com.adminportal.domain.security;
 
+
 import com.adminportal.domain.User;
 
 import javax.persistence.*;
-
 
 @Entity
 @Table(name = "user_role")
