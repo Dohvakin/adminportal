@@ -1,0 +1,358 @@
+@startuml
+
+title __ADMINPORTAL's Class Diagram__\n
+
+  package  {
+    package com.adminportal {
+      class AdminportalApplication {
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        package com.adminportal.domain.security {
+          class Authority {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class BillingAddress {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class Book {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.controller {
+        class BookController {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.repository {
+        interface BookRepository {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.service {
+        interface BookService {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.service {
+        package com.adminportal.service.impl {
+          class BookServiceImpl {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class BookToCartItem {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class CartItem {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.controller {
+        class HomeController {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    class MavenWrapperDownloader {
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class Order {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        package com.adminportal.domain.security {
+          class PasswordResetToken {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class Payment {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        package com.adminportal.domain.security {
+          class Role {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.repository {
+        interface RoleRepository {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.config {
+        class SecurityConfig {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.utility {
+        class SecurityUtility {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class ShippingAddress {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class ShoppingCart {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class User {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class UserBilling {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class UserPayment {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.repository {
+        interface UserRepository {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        package com.adminportal.domain.security {
+          class UserRole {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.service {
+        package com.adminportal.service.impl {
+          class UserSecurityService {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.service {
+        interface UserService {
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.service {
+        package com.adminportal.service.impl {
+          class UserServiceImpl {
+          }
+        }
+      }
+    }
+  }
+  
+
+  package  {
+    package com.adminportal {
+      package com.adminportal.domain {
+        class UserShipping {
+        }
+      }
+    }
+  }
+  
+
+  AdminportalApplication -up-|> CommandLineRunner
+  AdminportalApplication o-- UserService : userService
+  Authority -up-|> GrantedAuthority
+  BillingAddress o-- Order : order
+  BookController o-- BookService : bookService
+  BookServiceImpl -up-|> BookService
+  BookServiceImpl o-- BookRepository : bookRepository
+  BookToCartItem o-- Book : book
+  BookToCartItem o-- CartItem : cartItem
+  CartItem o-- Book : book
+  CartItem o-- ShoppingCart : shoppingCart
+  CartItem o-- Order : order
+  Order o-- ShippingAddress : shippingAddress
+  Order o-- BillingAddress : billingAddress
+  Order o-- Payment : payment
+  Order o-- User : user
+  PasswordResetToken o-- User : user
+  Payment o-- Order : order
+  Payment o-- UserBilling : userBilling
+  SecurityConfig -up-|> WebSecurityConfigurerAdapter
+  SecurityConfig o-- UserSecurityService : userSecurityService
+  ShippingAddress o-- Order : order
+  ShoppingCart o-- User : user
+  User -up-|> UserDetails
+  User o-- ShoppingCart : shoppingCart
+  UserBilling o-- UserPayment : userPayment
+  UserPayment o-- User : user
+  UserPayment o-- UserBilling : userBilling
+  UserRole o-- User : user
+  UserRole o-- Role : role
+  UserSecurityService -up-|> UserDetailsService
+  UserSecurityService o-- UserRepository : userRepository
+  UserServiceImpl -up-|> UserService
+  UserServiceImpl o-- UserRepository : userRepository
+  UserServiceImpl o-- RoleRepository : roleRepository
+  UserShipping o-- User : user
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
