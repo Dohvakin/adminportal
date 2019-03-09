@@ -1,7 +1,8 @@
 package com.adminportal.domain;
 
-import com.bookstore.domain.security.Authority;
-import com.bookstore.domain.security.UserRole;
+
+import com.adminportal.domain.security.Authority;
+import com.adminportal.domain.security.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
