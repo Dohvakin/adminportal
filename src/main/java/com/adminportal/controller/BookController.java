@@ -19,6 +19,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+/**
+ * The type Book controller.
+ */
 @Controller
 @RequestMapping("/book")
 public class BookController {
@@ -26,6 +29,12 @@ public class BookController {
 	@Autowired
 	private BookService bookService;
 
+	/**
+	 * Add book string.
+	 *
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String addBook(Model model) {
 		Book book = new Book();
@@ -33,6 +42,13 @@ public class BookController {
 		return "addBook";
 	}
 
+	/**
+	 * Add book post string.
+	 *
+	 * @param book    the book
+	 * @param request the request
+	 * @return the string
+	 */
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addBookPost(@ModelAttribute("book") Book book, HttpServletRequest request) {
 		bookService.save(book);
@@ -53,6 +69,13 @@ public class BookController {
 		return "redirect:bookList";
 	}
 
+	/**
+	 * Book info string.
+	 *
+	 * @param id    the id
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping("/bookInfo")
 	public String bookInfo(@RequestParam("id") Long id, Model model) {
 		Book book = bookService.findOne(id);
@@ -61,6 +84,13 @@ public class BookController {
 		return "bookInfo";
 	}
 
+	/**
+	 * Update book string.
+	 *
+	 * @param id    the id
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping("/updateBook")
 	public String updateBook(@RequestParam("id") Long id, Model model) {
 		Book book = bookService.findOne(id);
@@ -69,6 +99,13 @@ public class BookController {
 		return "updateBook";
 	}
 
+	/**
+	 * Update book post string.
+	 *
+	 * @param book    the book
+	 * @param request the request
+	 * @return the string
+	 */
 	@RequestMapping(value = "/updateBook", method = RequestMethod.POST)
 	public String updateBookPost(@ModelAttribute("book") Book book, HttpServletRequest request) {
 		bookService.save(book);
@@ -93,11 +130,17 @@ public class BookController {
 
 		return "redirect:/book/bookInfo?id=" + book.getId();
 	}
-	
+
+	/**
+	 * Book list string.
+	 *
+	 * @param model the model
+	 * @return the string
+	 */
 	@RequestMapping("/bookList")
 	public String bookList(Model model) {
 		List<Book> bookList = bookService.findAll();
-		model.addAttribute("bookList", bookList);		
+		model.addAttribute("bookList", bookList);
 		return "bookList";
 
 	}

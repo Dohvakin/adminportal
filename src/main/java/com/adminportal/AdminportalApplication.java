@@ -14,12 +14,20 @@ import java.util.HashSet;
 import java.util.Set;
 
 
+/**
+ * The type Adminportal application.
+ */
 @SpringBootApplication
 public class AdminportalApplication implements CommandLineRunner {
-	
+
 	@Autowired
 	private UserService userService;
 
+	/**
+	 * The entry point of application.
+	 *
+	 * @param args the input arguments
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(AdminportalApplication.class, args);
 	}
@@ -35,7 +43,7 @@ public class AdminportalApplication implements CommandLineRunner {
 		role1.setRoleId(0);
 		role1.setName("ROLE_ADMIN");
 		userRoles.add(new UserRole(user1, role1));
-		
+
 		userService.createUser(user1, userRoles);
 	}
 }
