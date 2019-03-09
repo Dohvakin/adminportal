@@ -1,6 +1,7 @@
 package com.adminportal.domain.security;
 
 
+
 import com.adminportal.domain.User;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ public class PasswordResetToken {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String token;
 
 	@OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
@@ -26,10 +27,10 @@ public class PasswordResetToken {
 
 	public PasswordResetToken() {
 	}
-	
+
 	public PasswordResetToken(final String token, final User user) {
 		super();
-		
+
 		this.token = token;
 		this.user = user;
 		this.expiryDate = calculateExpiryDate(EXPIRATION);
@@ -53,6 +54,10 @@ public class PasswordResetToken {
 		cal.setTimeInMillis(new Date().getTime());
 		cal.add(Calendar.MINUTE, expiryTimeInMinutes);
 		return new Date(cal.getTime().getTime());
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getToken() {
@@ -79,15 +84,11 @@ public class PasswordResetToken {
 		this.expiryDate = expiryDate;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	@Override
 	public String toString() {
 		return "PasswordResetToken [id=" + id + ", token=" + token + ", user=" + user + ", expiryDate=" + expiryDate
 				+ "]";
 	}
-	
-	
+
+
 }

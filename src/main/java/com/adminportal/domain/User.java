@@ -1,6 +1,5 @@
 package com.adminportal.domain;
 
-
 import com.adminportal.domain.security.Authority;
 import com.adminportal.domain.security.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
