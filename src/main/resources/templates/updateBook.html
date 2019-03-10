@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
 <head th:replace="common/header :: common-header"/>
@@ -201,9 +202,9 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="status">Status</label>
                     <div class="col-md-8">
-                        <label><input checked="checked" name="active" type="radio"
+                        <label><input name="active" th:checked="${book.active}" type="radio"
                                       value="true"/> Active </label> <label><input
-                            name="active" type="radio" value="false"/>
+                            name="active" th:checked="${!book.active}" type="radio" value="false"/>
                         Inactive </label> <span class="help-block">Whether the book is
 								active or inactive</span>
                     </div>

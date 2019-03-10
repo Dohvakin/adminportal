@@ -31,4 +31,6 @@ public interface BookService {
 	 * @return the book
 	 */
 	Book findOne(Long id);
+
+	void removeOne(Long id);
 }

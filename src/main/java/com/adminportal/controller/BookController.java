@@ -145,4 +145,12 @@ public class BookController {
 
 	}
 
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)
+	public String remove(Model model, @ModelAttribute("id") String id) {
+		bookService.removeOne(Long.parseLong(id.substring(8)));
+		List<Book> bookList = bookService.findAll();
+		model.addAttribute("bookList", bookList);
+		return "redirect:/book/bookList";
+	}
+
 }
