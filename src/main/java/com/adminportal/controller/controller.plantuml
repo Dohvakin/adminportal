@@ -12,6 +12,7 @@ title __CONTROLLER's Class Diagram__\n
             + updateBook()
             + updateBookPost()
             + bookList()
+            + remove()
         }
       }
     }
@@ -31,7 +32,19 @@ title __CONTROLLER's Class Diagram__\n
   }
   
 
+  package  {
+    package com.adminportal {
+      package com.adminportal.controller {
+        class ResourceController {
+            + removeList()
+        }
+      }
+    }
+  }
+  
+
   BookController o-- BookService : bookService
+  ResourceController o-- BookService : bookService
 
 
 right footer

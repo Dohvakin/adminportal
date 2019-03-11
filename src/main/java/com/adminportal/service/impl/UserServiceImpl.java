@@ -12,9 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-/**
- * The type User service.
- */
 @Service
 public class UserServiceImpl implements UserService {
 

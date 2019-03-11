@@ -9,6 +9,7 @@ title __SERVICE's Class Diagram__\n
             {abstract} + save()
             {abstract} + findAll()
             {abstract} + findOne()
+            {abstract} + removeOne()
         }
       }
     }

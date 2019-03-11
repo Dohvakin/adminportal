@@ -10,6 +10,7 @@ title __IMPL's Class Diagram__\n
               + save()
               + findAll()
               + findOne()
+              + removeOne()
           }
         }
       }

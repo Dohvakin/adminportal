@@ -14,20 +14,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-/**
- * The type Adminportal application.
- */
 @SpringBootApplication
 public class AdminportalApplication implements CommandLineRunner {
 
 	@Autowired
 	private UserService userService;
 
-	/**
-	 * The entry point of application.
-	 *
-	 * @param args the input arguments
-	 */
 	public static void main(String[] args) {
 		SpringApplication.run(AdminportalApplication.class, args);
 	}
